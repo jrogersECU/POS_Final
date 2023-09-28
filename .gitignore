@@ -1,0 +1,17 @@
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore compiled binaries and build output
+bin/
+obj/
+bin-debug/
+obj-debug/
+publish/
+
+# Ignore NuGet package directories
+packages/
+*.nupkg
+
+# Ignore user-specific files
+*.user
+*.suo
