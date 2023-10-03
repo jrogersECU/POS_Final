@@ -20,6 +20,8 @@ namespace Inventory.Models
         [MaxLength(100)] // Sets maximum length for supplier String
         public string Supplier { get; set; }
 
+        public int ProductId {get; set;}
+
         // link to the Product
         [ForeignKey("ProductId")]
         public Product Product { get; set; }

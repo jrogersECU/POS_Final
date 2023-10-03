@@ -4,9 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
-builder.Services.AddDbContext<DbContext>(options =>
+builder.Services.AddDbContext<POSDbContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("DbContext") ?? throw new InvalidOperationException("SQLite connection string is missing."));
+    options.EnableSensitiveDataLogging();
 });
 
 builder.Services.AddControllers();
@@ -33,8 +34,14 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var dbContext = services.GetRequiredService<DbContext>();
+    var dbContext = services.GetRequiredService<POSDbContext>();
     dbContext.Database.Migrate();
+
+    var dataContext = new POSDbContext(services.GetRequiredService<DbContextOptions<POSDbContext>>());
+    dataContext.SeedData();
+
 }
+
+
 
 app.Run();

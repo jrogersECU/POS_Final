@@ -7,7 +7,7 @@ namespace Products.Models
     {
         [Key] // Primary Key
 
-        public int Product_Id { get; set; }
+        public int ProductId { get; set; }
         
         [Required] // Marks property as required
         [MaxLength(100)]// Sets max length constraint

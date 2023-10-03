@@ -30,7 +30,7 @@ public class ProductController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetProductById(int id)
     {
-        var product = _context.Products.FirstOrDefault(p => p.Product_Id == id);
+        var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
 
         if (product == null)
         {
@@ -70,7 +70,7 @@ public IActionResult GetProductWithInventory(int id)
 {
     var productWithInventory = _context.Products
         .Include(p => p.Inventories) // Include the related inventory items
-        .FirstOrDefault(p => p.Product_Id == id);
+        .FirstOrDefault(p => p.ProductId == id);
 
     if (productWithInventory == null)
     {
@@ -93,7 +93,7 @@ public IActionResult GetProductWithInventory(int id)
         _context.Products.Add(product);
         _context.SaveChanges();
 
-        return CreatedAtAction(nameof(GetProductById), new { id = product.Product_Id }, product);
+        return CreatedAtAction(nameof(GetProductById), new { id = product.ProductId }, product);
     }
 
     // PUT Update Product by ID
@@ -105,7 +105,7 @@ public IActionResult GetProductWithInventory(int id)
             return BadRequest(ModelState); // Validation failed
         }
 
-        var existingProduct = _context.Products.FirstOrDefault(p => p.Product_Id == id);
+        var existingProduct = _context.Products.FirstOrDefault(p => p.ProductId == id);
 
         if (existingProduct == null)
         {
@@ -124,7 +124,7 @@ public IActionResult GetProductWithInventory(int id)
     [HttpDelete("{id}")]
     public IActionResult DeleteProduct(int id)
     {
-        var product = _context.Products.FirstOrDefault(p => p.Product_Id == id);
+        var product = _context.Products.FirstOrDefault(p => p.ProductId == id);
 
         if (product == null)
         {
@@ -137,7 +137,22 @@ public IActionResult GetProductWithInventory(int id)
         return NoContent(); // Success, no content to return
     }
 
-    // Inventory Endpoints
+    // DELETE Inventory Item by ID
+    [HttpDelete("Inventory/{id}")]
+    public IActionResult DeleteInventoryItem(int id)
+    {
+        var inventoryItem = _context.Inventories.FirstOrDefault(i => i.InventoryId == id);
+
+        if (inventoryItem == null)
+        {
+            return NotFound(); // Inventory item not found
+        }
+
+        _context.Inventories.Remove(inventoryItem);
+        _context.SaveChanges();
+
+        return NoContent(); // Success
+}
 
     // GET All Inventory Items
     [HttpGet("Inventory")]
@@ -205,6 +220,8 @@ public IActionResult UpdateInventoryItem(int id, [FromBody] Inventory.Models.Inv
 }
 
 }
+
+// I am adding this comment to test migration rollback. This accomplishes nothing.
 
 
     
