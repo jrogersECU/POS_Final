@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Products.Models;
 using Transactions.Models;
 using Inventory.Models;
+using UserData;
 
 
 
@@ -15,6 +16,7 @@ using Inventory.Models;
     public DbSet<Product> Products { get; set; }
     public DbSet<Inventory.Models.Inventory> Inventories { get; set; }
     public DbSet<Transactions.Models.TransactionItem> Transactions { get; set; }
+    public DbSet<User> Users { get; set; }
 
      // Method for seeding tables
      public void SeedData()
@@ -62,8 +64,11 @@ using Inventory.Models;
         base.OnModelCreating(modelBuilder);
         // Custom index for the name of product entities
         modelBuilder.Entity<Product>()
+    
         .HasIndex(p => p.Name)
         .IsUnique();
+
+        modelBuilder.Entity<User>().ToTable("Users");
     }  
 }
 
