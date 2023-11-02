@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "3D9lJNqZA6hWTRxjy7VpGqWh/WT4U4bmqm0ciECGuVJZRK/ZHcQ6l3N1u9O5UJ8vJWA4GWmL765HDkn5T6lkrw==",
+  "dgSpecHash": "OmNOqB+v4Kex/4v8n56QV3c2dHCMPqkiWVQ5PDCw0fSGYOSHS2gny0SPSwIXiwom8bWavE31lF4rPByCwy8nBw==",
   "success": true,
   "projectFilePath": "/Users/saddhat/Desktop/POS_folder/POS/POS.csproj",
   "expectedPackageFiles": [
     "/Users/saddhat/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
+    "/Users/saddhat/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
