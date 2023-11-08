@@ -1,17 +1,20 @@
 using BCrypt.Net;
+using System.Text;
 
-public class PasswordHasher
+namespace PasswordHasher{
+public class PasswordHasher1
 {
-    public static (string Hash, string Salt) HashPassword(string password)
+    public static string HashPassword(string password)
     {
         string salt = BCrypt.Net.BCrypt.GenerateSalt();
         string hash = BCrypt.Net.BCrypt.HashPassword(password, salt);
-        return (hash, salt);
+        return hash;
     }
 
-    public static bool VerifyPassword(string password, string storedHash)
+    public static bool VerifyPassword(string password, string hashedPassword)
     {
-        return BCrypt.Net.BCrypt.Verify(password, storedHash);
         
+        return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
     }
+}
 }

@@ -33,10 +33,10 @@ public partial class InitialCreate : Migration
             {
                 table.PrimaryKey("PK_Inventories", x => x.InventoryId);
                 table.ForeignKey(
-                    name: "FK_Inventories_Products_Product_Id",
+                    name: "FK_Inventories_Products_ProductId",
                     column: x => x.Product_Id,
                     principalTable: "Products",
-                    principalColumn: "Product_Id",
+                    principalColumn: "ProductId",
                     onDelete: ReferentialAction.Cascade);
             });
 
@@ -52,10 +52,42 @@ public partial class InitialCreate : Migration
             {
                 table.PrimaryKey("PK_TransactionItems", x => x.TransactionItemId);
             });
+
+             
+        // Insert predefined users with roles into the Users table
+        migrationBuilder.InsertData(
+            table: "Users",
+            columns: new[] { "Username", "Email", "PasswordHash", "PasswordSalt", "Role" },
+            values: new object[] 
+            {
+
+                "user1", "user1@example.com", "hashed_password_user1", "salt_user1", "User"
+            
+            });
+
+        migrationBuilder.InsertData(
+            table: "Users",
+            columns: new[] { "Username", "Email", "PasswordHash", "PasswordSalt", "Role" },
+            values: new object[] 
+            { 
+
+            "admin1", "admin1@example.com", "hashed_password_admin1", "salt_admin1", "Admin"
+
+            });
     }
 
     protected override void Down(MigrationBuilder migrationBuilder)
     {
+        migrationBuilder.DeleteData( 
+            table: "Users",
+            keyColumn: "Username",
+            keyValues: new string[]{ "user1" });
+        
+        migrationBuilder.DeleteData(
+            table: "Users", 
+            keyColumn: "Username", 
+            keyValues: new[] { "admin1" });
+        
         migrationBuilder.DropTable(
             name: "TransactionItems");
 

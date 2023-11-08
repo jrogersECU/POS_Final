@@ -15,3 +15,4 @@ packages/
 # Ignore user-specific files
 *.user
 *.suo
+.fake

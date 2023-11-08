@@ -1,12 +1,19 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Products.Models;
 using Transactions.Models;
 using Inventory.Models;
 using UserData;
+using PasswordHasher;
 
 
 
-    public class POSDbContext : DbContext
+using Microsoft.Extensions.Logging.Abstractions;
+
+
+
+
+public class POSDbContext : DbContext
 {
     public POSDbContext(DbContextOptions<POSDbContext> options) : base(options)
     {
@@ -21,52 +28,91 @@ using UserData;
      // Method for seeding tables
      public void SeedData()
     {
-        if (!Products.Any())
-        {
+        InsertInitialProducts();
         
-            var product1 = new Product { Name = "Hot Dog" };
-            var product2 = new Product { Name = "Hamburger" };
-
-            Products.AddRange(product1, product2);
-            SaveChanges();
-        }
-
-        if (!Inventories.Any())
+        if (!Transactions.Any())
         {
         var product1 = Products.Single(p => p.Name == "Hot Dog");
         var product2 = Products.Single(p => p.Name == "Hamburger");
         
-        var inventory1 = new Inventory.Models.Inventory { ProductId = product1.ProductId, QuantityOnHand = 100, ReorderPoint = 20, Supplier = "Supplier A" };
-        var inventory2 = new Inventory.Models.Inventory { ProductId = product2.ProductId, QuantityOnHand = 75, ReorderPoint = 15, Supplier = "Supplier B" };
+        var transactionItem1 = new TransactionItem { ProductId = 3, Quantity = 5, UnitPrice = 5.00m };
+        var transactionItem2 = new TransactionItem { ProductId = 4, Quantity = 5, UnitPrice = 7.00m };
 
 
-        Inventories.AddRange(inventory1, inventory2);
+        Transactions.AddRange(transactionItem1, transactionItem2);
         SaveChanges();
         }
 
- 
-        var transactionItem = new TransactionItem
+    }
+
+     public void InsertInitialProducts()
+    {
+        if (!Products.Any(p => p.ProductId == 3))
         {
-            ProductId = 1, 
-            Quantity = 5,
-            UnitPrice = 10.00m 
+            var product1 = new Product { ProductId = 3, Name = "Hot Dog", Price = 5.00m };
+            Products.Add(product1);
+        }
+
+        if (!Products.Any(p => p.ProductId == 4))
+        {
+            var product2 = new Product { ProductId = 4, Name = "Hamburger", Price = 7.00m };
+            Products.Add(product2);
+        }
+
+        SaveChanges();
+
+        if (!Users.Any())
+    {
+        
+        var user1 = new User
+        {
+            Username = "user1",
+            Email = "user1@example.com",
+            PasswordSalt = SaltGenerator.GenerateRandomSalt(),
+            PasswordHash = PasswordHasher1.HashPassword("password123"),
+            Role = "User", 
+            // Other user properties
         };
 
-        Set<TransactionItem>().Add(transactionItem);
+        var user2 = new User
+        {
+            Username = "admin1",
+            Email = "admin1@example.com",
+            PasswordSalt = SaltGenerator.GenerateRandomSalt(),
+            PasswordHash = PasswordHasher1.HashPassword("password321"),
+            Role = "Admin",
+        };
+
+        Users.AddRange(user1, user2);
         SaveChanges();
+    }
+
+    
     }
 
 
      protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         
-
         base.OnModelCreating(modelBuilder);
         // Custom index for the name of product entities
         modelBuilder.Entity<Product>()
     
+        .ToTable("Products")
+        .HasKey(p => p.ProductId);
+
+        modelBuilder.Entity<Product>()
+        .Property(p => p.ProductId)
+        .HasColumnName("ProductId");
+        
+        modelBuilder.Entity<Product>()
         .HasIndex(p => p.Name)
         .IsUnique();
+
+        modelBuilder.Entity<Inventory.Models.Inventory>()
+        .HasOne(i => i.Product)
+        .WithMany(p => p.Inventories)
+        .HasForeignKey(i => i.ProductId);
 
         modelBuilder.Entity<User>().ToTable("Users");
     }  

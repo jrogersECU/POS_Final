@@ -29,9 +29,14 @@ public class ProductController : ControllerBase
     [HttpPost("login")]
     public IActionResult Login([FromBody] Login model)
     {
-        var tokenService = new TokenService(_configuration); // Pass your configuration to the TokenService
+        var tokenService = new TokenService(_configuration, _context); // Pass your configuration to the TokenService
         var token = tokenService.GenerateToken(model); // Generate the JWT token
 
+        if (token == null)
+        {
+            return Unauthorized();
+        }
+        
         return Ok(new { token });
     }
 

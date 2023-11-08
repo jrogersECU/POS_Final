@@ -46,6 +46,7 @@ namespace Transactions.Models
         public decimal UnitPrice { get; set; }
 
         // link to the Product
+        [ForeignKey("ProductId")]
         public Product Product { get; set; }
     }
 }
