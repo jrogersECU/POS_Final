@@ -117,3 +117,4 @@
 /Users/saddhat/Desktop/POS_folder/POS/obj/Debug/net7.0/POS.pdb
 /Users/saddhat/Desktop/POS_folder/POS/obj/Debug/net7.0/POS.genruntimeconfig.cache
 /Users/saddhat/Desktop/POS_folder/POS/obj/Debug/net7.0/ref/POS.dll
+/Users/saddhat/Desktop/POS_folder/POS/obj/Debug/net7.0/POS.sourcelink.json
