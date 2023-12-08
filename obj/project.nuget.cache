@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OmNOqB+v4Kex/4v8n56QV3c2dHCMPqkiWVQ5PDCw0fSGYOSHS2gny0SPSwIXiwom8bWavE31lF4rPByCwy8nBw==",
+  "dgSpecHash": "PEb0pIBAKI//VVVTQzoelAvCzSO2ucO58JcFFk4dHsp2NBbk+elZNRtwX9/jYe+XJRygHxzTsaDlGX+O0oKFkw==",
   "success": true,
   "projectFilePath": "/Users/saddhat/Desktop/POS_folder/POS/POS.csproj",
   "expectedPackageFiles": [
@@ -106,7 +106,10 @@
     "/Users/saddhat/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "/Users/saddhat/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
+    "/Users/saddhat/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
+    "/Users/saddhat/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/saddhat/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/saddhat/.nuget/packages/microsoft.netcore.app.host.osx-x64/7.0.14/microsoft.netcore.app.host.osx-x64.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }
