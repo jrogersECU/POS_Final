@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/saddhat/Desktop/POS_folder/POS/POS.csproj": {}
+    "C:\\Users\\ryanj\\Documents\\GitHub\\POS_Final(1)\\POS.csproj": {}
   },
   "projects": {
-    "/Users/saddhat/Desktop/POS_folder/POS/POS.csproj": {
+    "C:\\Users\\ryanj\\Documents\\GitHub\\POS_Final(1)\\POS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/saddhat/Desktop/POS_folder/POS/POS.csproj",
+        "projectUniqueName": "C:\\Users\\ryanj\\Documents\\GitHub\\POS_Final(1)\\POS.csproj",
         "projectName": "POS",
-        "projectPath": "/Users/saddhat/Desktop/POS_folder/POS/POS.csproj",
-        "packagesPath": "/Users/saddhat/.nuget/packages/",
-        "outputPath": "/Users/saddhat/Desktop/POS_folder/POS/obj/",
+        "projectPath": "C:\\Users\\ryanj\\Documents\\GitHub\\POS_Final(1)\\POS.csproj",
+        "packagesPath": "C:\\Users\\ryanj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ryanj\\Documents\\GitHub\\POS_Final(1)\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/saddhat/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ryanj\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -35,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {
               "target": "Package",
@@ -44,7 +44,7 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -52,33 +52,33 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[7.0.13, )"
+              "version": "[8.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -96,20 +96,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -118,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

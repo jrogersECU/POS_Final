@@ -7,6 +7,9 @@ public static class ProductSeedData
     {
         new Product { Name = "Hotdog", Price = 10.99m },
         new Product { Name = "Hamburger", Price = 15.99m },
-        // Add more products later
+        new Product { Name = "Arroz con Pollo", Price = 12.99m },
+        new Product { Name = "Bulgogi Tacos", Price = 14.99m },
+        new Product { Name = "Ceviche", Price = 13.99m },
+        new Product { Name = "Chimichanga", Price = 11.99m },
     };
 }

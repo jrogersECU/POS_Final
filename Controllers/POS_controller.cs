@@ -41,14 +41,17 @@ public class ProductController : ControllerBase
     }
 
     [Authorize(Policy = "AdminPolicy")]
-    [HttpGet("admin-endpoint")]
-    public IActionResult AdminEndpoint()
+    [HttpGet("FOH-endpoint/{name}")]
+    public IActionResult FOHEndpoint(string name)
     {
-        // Check if the current user is an admin
-        if (User.IsInRole("Admin"))
+        // Check if the current user is a Front of House Employee
+        if (User.IsInRole("FOH"))
         {
-        // Admin-specific logic here
-            return Ok("Welcome, Admin!");
+            Console.WriteLine("User is FOH");
+            Console.WriteLine("Please enter your name: ");
+            string inputName = Console.ReadLine(); // Rename the variable 'name' to 'inputName'
+        // Front of House-specific logic here
+            return Ok("Welcome," + inputName + "!"); // Use the renamed variable 'inputName'
         }
         else
         {
@@ -274,6 +277,15 @@ public IActionResult UpdateInventoryItem(int id, [FromBody] Inventory.Models.Inv
     return Ok(existingInventoryItem);
 }
 
+// GET All Transactions
+[HttpGet("Transactions")]
+public IActionResult GetAllTransactions()
+{
+    var transactions = _context.Transactions.ToList();
+    return Ok(transactions);
+
+
+}
 }
 
 // I am adding this comment to test migration rollback. This accomplishes nothing.

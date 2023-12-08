@@ -34,9 +34,17 @@ public class POSDbContext : DbContext
         {
         var product1 = Products.Single(p => p.Name == "Hot Dog");
         var product2 = Products.Single(p => p.Name == "Hamburger");
+        var product3 = Products.Single(p => p.Name == "Arroz Con Pollo");
+        var product4 = Products.Single(p => p.Name == "Bulgogi Tacos");
+        var product5 = Products.Single(p => p.Name == "Ceviche");
+        var product6 = Products.Single(p => p.Name == "Chimichanga");
         
         var transactionItem1 = new TransactionItem { ProductId = 3, Quantity = 5, UnitPrice = 5.00m };
         var transactionItem2 = new TransactionItem { ProductId = 4, Quantity = 5, UnitPrice = 7.00m };
+        var transactionItem3 = new TransactionItem { ProductId = 5, Quantity = 5, UnitPrice = 12.99m };
+        var transactionItem4 = new TransactionItem { ProductId = 6, Quantity = 5, UnitPrice = 14.99m };
+        var transactionItem5 = new TransactionItem { ProductId = 7, Quantity = 5, UnitPrice = 13.99m };
+        var transactionItem6 = new TransactionItem { ProductId = 8, Quantity = 5, UnitPrice = 11.99m };
 
 
         Transactions.AddRange(transactionItem1, transactionItem2);
@@ -57,6 +65,26 @@ public class POSDbContext : DbContext
         {
             var product2 = new Product { ProductId = 4, Name = "Hamburger", Price = 7.00m };
             Products.Add(product2);
+        }
+        if (!Products.Any(p => p.ProductId == 5))
+        {
+            var product3 = new Product { ProductId = 5, Name = "Arroz Con Pollo", Price = 12.99m };
+            Products.Add(product3);
+        }
+        if (!Products.Any(p => p.ProductId == 6))
+        {
+            var product4 = new Product { ProductId = 6, Name = "Bulgogi Tacos", Price = 14.99m };
+            Products.Add(product4);
+        }
+        if (!Products.Any(p => p.ProductId == 7))
+        {
+            var product5 = new Product { ProductId = 7, Name = "Ceviche", Price = 13.99m };
+            Products.Add(product5);
+        }
+        if (!Products.Any(p => p.ProductId == 8))
+        {
+            var product6 = new Product { ProductId = 8, Name = "Chimichanga", Price = 11.99m };
+            Products.Add(product6);
         }
 
         SaveChanges();
@@ -86,7 +114,6 @@ public class POSDbContext : DbContext
         Users.AddRange(user1, user2);
         SaveChanges();
     }
-
     
     }
 
